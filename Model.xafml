@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="ColumnChooser" CustomCSSClassName="dxbl-grid-column-chooser-custom-label-text" />
+      <Action Id="Logon" CustomCSSClassName="LogonButtonStyle" />
+    </Actions>
+  </ActionDesign>
+  <NavigationItems StartupNavigationItem="Dashboard">
+    <Items>
+      <Item Id="Dashboard" Index="0" Caption="Dashboard" ViewId="Dashboard" IsNewNode="True" />
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" RestoreTabbedMdiLayout="False" ShowTabImage="True" />
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="24.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.1.6.0" IsNewNode="True" />
+  </SchemaModules>
+  <ViewItems>
+    <PropertyEditor Name="PropertyEditors">
+      <RegisteredPropertyEditor PropertyType="System.DateTime" DefaultDisplayFormat="{0:dd-MMM-yyyy}" DefaultEditMask="dd-MMM-yyyy" />
+      <RegisteredPropertyEditor PropertyType="System.Decimal" DefaultDisplayFormat="{0:n}" DefaultEditMask="n" />
+    </PropertyEditor>
+  </ViewItems>
+  <Views>
+    <DetailView Id="AuthenticationStandardLogonParameters_Blazor_DetailView">
+      <Items>
+        <StaticText Id="LogonText" Text="Enter your login credentials  to access your ACReSAL MIS profile&#xD;&#xA;" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="RootGroup">
+            <LayoutGroup Id="EditorsGroup">
+              <LayoutGroup Id="Editors">
+                <LayoutItem Id="UserName" CustomCSSClassName="LoginTextEdit LoginTextEditCaption" />
+                <LayoutItem Id="Password" CustomCSSClassName="LoginTextEdit LoginTextEditCaption" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DashboardView Id="Dashboard" Caption="Dashboard" AllowDelete="False" AllowNew="False" EnableLayoutGroupImages="True" IsNewNode="True">
+      <HiddenActions IsNewNode="True">
+        <ActionLink ActionId="OrganizeDashboard" IsNewNode="True" />
+        <ActionLink ActionId="Refresh" IsNewNode="True" />
+        <ActionLink ActionId="RefreshAction" IsNewNode="True" />
+      </HiddenActions>
+      <Items IsNewNode="True">
+        <ControlDetailItem Id="Dashboard" Caption="" ControlTypeName="ACReSAL.MIS.Blazor.Server.Editors.DashboardAdapter" IsNewNode="True" />
+      </Items>
+    </DashboardView>
+    <DashboardView Id="DashboardA1" Caption="A1 - Watershed Management" />
+  </Views>
+</Application>
